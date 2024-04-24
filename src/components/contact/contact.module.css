@@ -1,0 +1,17 @@
+.contact-conteiner {
+  border: 2px solid rgb(152, 126, 113);
+  border-radius: 5px;
+  padding: 0 10px 0 10px;
+  width: 285px;
+  background-color: rgb(231, 213, 185);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.contact-conteiner:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.contact-delete {
+  padding: 6px 15px;
+  float: right;
+  margin: -40px 0;
+}

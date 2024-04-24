@@ -1,0 +1,17 @@
+.search-box-conteiner {
+  margin: 7px;
+  padding: 20px 28px;
+}
+
+.search-box-input {
+  width: 290px;
+  padding: 5px;
+  border: 2px solid rgb(152, 135, 113);
+  border-radius: 5px;
+}
+.search-box-input:hover,
+.search-box-input:focus,
+.search-box-input:active {
+  border: 2px solid #fff;
+  background-color: antiquewhite;
+}
