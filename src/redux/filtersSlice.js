@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  items: [],
+  contacts: {
+    items: [],
+    loading: false,
+    error: null,
+  },
   filters: {
     name: "",
   },

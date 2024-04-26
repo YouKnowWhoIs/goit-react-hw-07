@@ -1,25 +1,27 @@
 import { useDispatch } from "react-redux";
-import { deleteContact } from "../../redux/contactsSlice";
+import { removeContactsThunk } from "../../redux/operation.js";
 
 export const Contact = ({ contact }) => {
   const dispatch = useDispatch();
 
   const handleOnDelete = (id) => {
-    const action = deleteContact(id);
-    dispatch(action);
+    dispatch(removeContactsThunk(id));
+    // console.log(id);
 
     // console.log(action);
   };
   return (
-    <li className="contact-conteiner">
-      <p>{contact.name}</p>
-      <p>{contact.number}</p>
-      <button
-        className="contact-delete"
-        onClick={() => handleOnDelete(contact.id)}
-      >
-        Delete
-      </button>
-    </li>
+    <>
+      <li className="contact-conteiner">
+        <p>{contact.name}</p>
+        <p>{contact.number}</p>
+        <button
+          className="contact-delete"
+          onClick={() => handleOnDelete(contact.id)}
+        >
+          Delete
+        </button>
+      </li>
+    </>
   );
 };
