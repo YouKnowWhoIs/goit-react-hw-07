@@ -1,7 +1,7 @@
 export const Error = () => {
   return (
-    <>
-      <p>Ooops! error here</p>
-    </>
+    <div className="conteiner-error">
+      <p>Ooops! Something wrong!</p>
+    </div>
   );
 };

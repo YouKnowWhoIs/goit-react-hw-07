@@ -2,7 +2,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContactsThunk } from "../../redux/contactsOps.js";
 
 const initialValues = {
   name: "",
@@ -20,8 +20,8 @@ export const ContactForm = () => {
       id: uuidv4(),
       name: values.name.trim(),
     };
-    const action = addContact(newContact);
-    dispatch(action);
+
+    dispatch(addContactsThunk(newContact));
 
     actions.resetForm();
   };

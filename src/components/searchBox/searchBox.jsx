@@ -7,6 +7,7 @@ export const SearchBox = () => {
 
   const handleInputChange = (event) => {
     dispatch(filterContact(event.target.value));
+    // console.log(event);
   };
 
   return (

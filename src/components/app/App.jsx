@@ -5,16 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { ContactForm } from "../contactForm/contactForm.jsx";
 import { SearchBox } from "../searchBox/searchBox.jsx";
 import { ContactList } from "../contactList/contactList.jsx";
-import { featchContactsThunk } from "../../redux/operation.js";
+import { featchContactsThunk } from "../../redux/contactsOps.js";
 import { Loading } from "../loading/loading.jsx";
 import { Error } from "../error/error.jsx";
 
 function App() {
   const dispatch = useDispatch();
 
-  const { loading, error, items } = useSelector(
-    (state) => state.contacts.contacts
-  );
+  const { loading, error, items } = useSelector((state) => state.contacts);
 
   useEffect(() => {
     dispatch(featchContactsThunk());
@@ -32,7 +30,7 @@ function App() {
         <SearchBox />
         {loading && <Loading />}
         {error && <Error />}
-        {items && <ContactList items={items} />}
+        {items && <ContactList />}
       </div>
     </>
   );
