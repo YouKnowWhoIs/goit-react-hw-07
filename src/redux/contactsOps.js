@@ -16,7 +16,7 @@ axios.defaults.baseURL = `https://662a12e767df268010a282d3.mockapi.io`;
 //   }
 // };
 
-export const featchContactsThunk = createAsyncThunk(
+export const fetchContactsThunk = createAsyncThunk(
   "contacts/featchAll",
   async (_, thunkApi) => {
     try {

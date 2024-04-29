@@ -1,9 +1,11 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
-  featchContactsThunk,
+  fetchContactsThunk,
   addContactsThunk,
   removeContactsThunk,
 } from "./contactsOps";
+
+import { selectNameFilter } from "./filtersSlice.js";
 
 const initialState = {
   contacts: {
@@ -29,34 +31,10 @@ const pendingReducer = (state) => {
 export const contactSlice = createSlice({
   name: "contacts",
   initialState,
-  // reducers: {
-  // addContact: (state, action) => {
-  //   state.items.push(action.payload);
-  // },
-  //   deleteContact: (state, action) => {
-  //     state.items = state.items.filter(
-  //       (contact) => contact.id !== action.payload
-  //     );
-  //   },
-  // fetchingInProgres: (state) => {
-  //   state.loading = true;
-  //   state.errer = null;
-  //   state.items = [];
-  // },
-  // fetchingSuccess: (state, action) => {
-  //   state.loading = false;
-  //   state.errer = null;
-  //   state.items = action.payload;
-  // },
-  // fetchingError: (state, action) => {
-  //   state.loading = false;
-  //   state.error = action.payload;
-  // },
-  // },
 
   extraReducers: (builder) => {
     builder
-      .addCase(featchContactsThunk.fulfilled, (state, action) => {
+      .addCase(fetchContactsThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
         state.items = action.payload;
@@ -84,20 +62,10 @@ export const contactSlice = createSlice({
 
 export const selectContacts = (state) => state.contacts.items;
 
-export const selectFilters = (state) => state.filters.filters.name;
-
-// export const {
-//   addContact,
-// deleteContact,
-// fetchingInProgres,
-// fetchingSuccess,
-// fetchingError,
-// } = contactSlice.actions;
-
 export const contactReducer = contactSlice.reducer;
 
 export const selectFilteredContacts = createSelector(
-  [selectContacts, selectFilters],
+  [selectContacts, selectNameFilter],
   (contacts, filter) => {
     if (!filter) return contacts;
     return contacts.filter((contact) =>

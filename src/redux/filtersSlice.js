@@ -11,16 +11,18 @@ const initialState = {
   },
 };
 
-const changeFilter = createSlice({
+const filterContact = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    filterContact: (state, action) => {
+    changeFilter: (state, action) => {
       state.filters.name = action.payload;
     },
   },
 });
 
-export const { filterContact } = changeFilter.actions;
+export const { changeFilter } = filterContact.actions;
 
-export const filterReducer = changeFilter.reducer;
+export const filterReducer = filterContact.reducer;
+
+export const selectNameFilter = (state) => state.filters.filters.name;
